@@ -19,7 +19,13 @@ class PipDeepfreezeEnvironment(VirtualEnvironment):
                 "Please use project.optional-dependencies and "
                 "tool.hatch.envs.<ENV NAME>.features."
             )
-        cmd = [sys.executable, "-m", "pip_deepfreeze", "sync"]
+        cmd = [
+            sys.executable,
+            "-m",
+            "pip_deepfreeze",
+            "sync",
+            "--uninstall-unneeded",
+        ]
         if self.features:
             cmd += ["--extras", ",".join(self.features)]
         return cmd
