@@ -39,10 +39,6 @@ class PipDeepfreezeEnvironment(VirtualEnvironment):
         with self.safe_activation():
             self.platform.check_command(self._pip_df_sync_cmd())
 
-    def dependencies_in_sync(self):
-        # always sync, pip-df sync is relatively fast
-        return False
-
     def sync_dependencies(self):
         with self.safe_activation():
             self.platform.check_command(self._pip_df_sync_cmd())
